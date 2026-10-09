@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agriculture and Income — Capstone Presentation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #19352c;
+      --muted: #536b60;
+      --green: #286744;
+      --lime: #d5e7ad;
+      --paper: #f7f7f0;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e8ece3;
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    .slide {
+      display: none;
+      position: relative;
+      width: min(100vw, 177.78vh);
+      min-height: min(56.25vw, 100vh);
+      height: 100vh;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 5.5rem);
+      overflow: auto;
+      background:
+        radial-gradient(ellipse at 100% 0%, #e8efd9 0, transparent 35%),
+        var(--paper);
+    }
+    .slide.active { display: flex; flex-direction: column; }
+    .eyebrow {
+      margin: 0 0 1rem;
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2 { max-width: 18ch; margin: 0 0 1.2rem; line-height: 1.06; }
+    h1 { font-size: clamp(2.6rem, 6vw, 5.6rem); }
+    h2 { font-size: clamp(2.2rem, 4.5vw, 4rem); }
+    p, li { font-size: clamp(1.05rem, 1.65vw, 1.45rem); line-height: 1.5; }
+    .lede { max-width: 48rem; color: var(--muted); font-size: clamp(1.25rem, 2vw, 1.8rem); }
+    .question {
+      max-width: 52rem;
+      margin: 1rem 0 2rem;
+      padding-left: 1.25rem;
+      border-left: .35rem solid var(--green);
+      font-size: clamp(1.5rem, 3vw, 2.7rem);
+      font-weight: 650;
+      line-height: 1.25;
+    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0; }
+    .card {
+      padding: 1.2rem;
+      border: 1px solid #d9dfd3;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, .72);
+    }
+    .card strong { display: block; margin-bottom: .4rem; color: var(--green); font-size: 1.1rem; }
+    .card p { margin: 0; font-size: clamp(.95rem, 1.35vw, 1.2rem); }
+    .stats { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1rem 0; }
+    .stat {
+      flex: 1 1 10rem;
+      padding: 1rem 1.2rem;
+      border-radius: .9rem;
+      background: var(--ink);
+      color: var(--white);
+    }
+    .stat b { display: block; color: var(--lime); font-size: clamp(1.6rem, 3vw, 2.5rem); }
+    .stat span { font-size: .95rem; }
+    .visual { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: center; flex: 1; }
+    .visual img { display: block; width: 100%; max-height: 56vh; object-fit: contain; }
+    .note { color: var(--muted); font-size: .95rem; }
+    .recommendation {
+      max-width: 54rem;
+      padding: 1.5rem 1.7rem;
+      border-radius: 1rem;
+      background: var(--green);
+      color: var(--white);
+      font-size: clamp(1.2rem, 2vw, 1.75rem);
+      line-height: 1.4;
+    }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .controls {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem;
+      border: 1px solid #d9dfd3;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 3px 18px #19352c22;
+    }
+    button { padding: .55rem .85rem; border: 0; border-radius: 999px; background: var(--green); color: white; font-size: 1rem; cursor: pointer; }
+    button:disabled { opacity: .4; cursor: default; }
+    #counter { min-width: 3.6rem; color: var(--muted); text-align: center; font-size: .9rem; }
+    @media (max-width: 700px) {
+      .slide { height: 100svh; padding: 2rem 1.4rem 5rem; }
+      .grid, .visual { grid-template-columns: 1fr; }
+      .visual img { max-height: 35vh; }
+      .footer { margin-top: 1.5rem; }
+    }
+    @media print {
+      body { background: white; }
+      .slide { display: flex !important; width: 100%; height: 100vh; page-break-after: always; }
+      .controls { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide active" aria-label="Slide 1: Business Understanding">
+      <p class="eyebrow">CRISP-DM · 1 of 6 · Business Understanding</p>
+      <h1>Agriculture and Income</h1>
+      <p class="lede">Does a farming economy mean a poorer country?</p>
+      <p class="question">Do countries with a larger agriculture share of GDP or a greater share of agricultural land tend to have lower GDP per capita?</p>
+      <p>World Bank country-year data · 1960–2025</p>
+      <div class="footer"><span>PyData Data Science Foundations · Week 5 Capstone</span><span>Use ← / → to navigate</span></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 2: Data Understanding">
+      <p class="eyebrow">CRISP-DM · 2 of 6 · Data Understanding</p>
+      <h2>Three indicators, different parts of the story</h2>
+      <div class="grid">
+        <article class="card"><strong>Income</strong><p>GDP per capita, current US$<br><code>NY.GDP.PCAP.CD</code></p></article>
+        <article class="card"><strong>Economic structure</strong><p>Agriculture value added, % of GDP<br><code>NV.AGR.TOTL.ZS</code></p></article>
+        <article class="card"><strong>Land use</strong><p>Agricultural land, % of land area<br><code>AG.LND.AGRI.ZS</code></p></article>
+      </div>
+      <p>The World Bank tables are wide (one row per country, one column per year), with gaps in reporting and aggregate rows such as “World.” GDP is in current dollars—not adjusted for inflation or cost-of-living differences.</p>
+      <div class="footer"><span>Source: World Bank, World Development Indicators</span><span>1960–2025</span></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 3: Data Preparation">
+      <p class="eyebrow">CRISP-DM · 3 of 6 · Data Preparation</p>
+      <h2>Build comparable country-years</h2>
+      <div class="visual">
+        <div>
+          <ol>
+            <li>Reshape each indicator to one row per country and year.</li>
+            <li>Exclude non-country aggregates; join on country code and year.</li>
+            <li>Keep GDP records in the working table; leave unavailable agriculture values missing.</li>
+            <li>Use only complete records when comparing all three measures.</li>
+          </ol>
+        </div>
+        <div>
+          <div class="stats">
+            <div class="stat"><b>11,764</b><span>GDP records before final cleaning</span></div>
+            <div class="stat"><b>11,752</b><span>working records after zero-value cleaning</span></div>
+            <div class="stat"><b>8,465</b><span>complete country-years for three-measure analysis</span></div>
+          </div>
+          <p class="note">The complete-case set is smaller because not every country reports every indicator in every year.</p>
+        </div>
+      </div>
+      <div class="footer"><span>Missing values stay missing; they are not treated as zero.</span><span>212 countries in the working dataset</span></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 4: Modeling">
+      <p class="eyebrow">CRISP-DM · 4 of 6 · Modeling</p>
+      <h2>Compare income on a log scale</h2>
+      <div class="grid">
+        <article class="card"><strong>Correlation</strong><p>Measure the linear association between each agriculture indicator and log GDP per capita.</p></article>
+        <article class="card"><strong>Group comparisons</strong><p>Compare high- and low-agriculture-share country-years; compare low, medium, and high agricultural-land groups.</p></article>
+        <article class="card"><strong>Time comparison</strong><p>Compare the share of records with agriculture above 20% of GDP before 2000 and from 2000 onward.</p></article>
+      </div>
+      <p class="question">Why log income? GDP per capita is strongly right-skewed; the log scale reduces the influence of a few very high values.</p>
+      <p class="note">These are descriptive country-year analyses. The same countries recur over time, so observations are not independent.</p>
+      <div class="footer"><span>Analysis uses the cleaned, complete-case data where required.</span><span>Methods: correlations · Welch t-test · ANOVA · proportion test</span></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 5: Evaluation">
+      <p class="eyebrow">CRISP-DM · 5 of 6 · Evaluation</p>
+      <h2>A strong association; a weaker land-use pattern</h2>
+      <div class="stats">
+        <div class="stat"><b>−0.816</b><span>correlation: agriculture share and log income</span></div>
+        <div class="stat"><b>−0.207</b><span>correlation: agricultural land and log income</span></div>
+        <div class="stat"><b>12% vs 88%</b><span>above-median income: high- vs low-agriculture-share groups</span></div>
+      </div>
+      <p>A Welch test also found a large difference in mean log income between the high- and low-agriculture-share groups (t = −104.8, p &lt; 0.001). Agricultural land shows a weaker, less orderly pattern across its groups.</p>
+      <p class="note">Statistical significance is not causation. Repeated country observations and changing reporting coverage can make simple tests overstate certainty.</p>
+      <div class="footer"><span>Results summarize this dataset—not every country or person.</span><span>Evaluation</span></div>
+    </section>
+
+    <section class="slide" aria-label="Slide 6: Deployment and Recommendation">
+      <p class="eyebrow">CRISP-DM · 6 of 6 · Deployment & Recommendation</p>
+      <h2>Look beyond the headline</h2>
+      <div class="visual">
+        <div>
+          <p class="recommendation">Use agriculture’s GDP share as a descriptive signal of economic structure—not as proof of a cause or a verdict on a country’s future.</p>
+          <p>For the next analysis, follow countries over time and add context such as education, productivity, trade, institutions, and inflation-adjusted income.</p>
+        </div>
+        <div>
+          <img src="figures/chart1_gdp_vs_agriculture_share.png" alt="Scatterplot of GDP per capita versus agriculture share of GDP">
+          <p class="note">The notebook and app include two additional charts: GDP by agricultural-land group and agriculture share over time.</p>
+        </div>
+      </div>
+      <p class="note">The Streamlit app and Substack article are not yet published. See the project README for current deliverable links.</p>
+      <div class="footer"><span>Charts: notebook analysis · Data: World Bank WDI</span><span>Thank you</span></div>
+    </section>
+  </main>
+  <nav class="controls" aria-label="Presentation controls">
+    <button id="previous" type="button" aria-label="Previous slide">←</button>
+    <span id="counter" aria-live="polite">1 / 6</span>
+    <button id="next" type="button" aria-label="Next slide">→</button>
+  </nav>
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    const counter = document.querySelector("#counter");
+    const previous = document.querySelector("#previous");
+    const next = document.querySelector("#next");
+    let current = 0;
+
+    function showSlide(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides.forEach((slide, position) => {
+        slide.classList.toggle("active", position === current);
+        slide.setAttribute("aria-hidden", String(position !== current));
+      });
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      previous.disabled = current === 0;
+      next.disabled = current === slides.length - 1;
+      history.replaceState(null, "", `#slide-${current + 1}`);
+    }
+
+    previous.addEventListener("click", () => showSlide(current - 1));
+    next.addEventListener("click", () => showSlide(current + 1));
+    document.addEventListener("keydown", event => {
+      if (event.key === "ArrowRight" || event.key === " ") showSlide(current + 1);
+      if (event.key === "ArrowLeft") showSlide(current - 1);
+    });
+    const requestedSlide = Number(location.hash.match(/slide-(\d+)/)?.[1]);
+    showSlide(Number.isInteger(requestedSlide) && requestedSlide > 0 ? requestedSlide - 1 : 0);
+  </script>
+</body>
+</html>
