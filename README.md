@@ -18,9 +18,8 @@ repeat countries across time, so they are not independent observations.
 3. **[CRISP-DM presentation](./slides.html)** — six slides for presenting the
    question, data, preparation, analysis, results, and recommendation. Open
    the file in a browser and use the arrow keys to navigate.
-4. **Article** — [read the current draft](./substack_article_draft.md).
-   Publication on Substack or Medium is still pending; replace this draft link
-   with the public article URL once published.
+4. **Article** — [read the article](./substack_article.md). Add its public
+   Substack or Medium URL here when available.
 
 ## Research question
 
