@@ -1,26 +1,18 @@
 [project]
 name = "capstone-martin"
 version = "0.1.0"
-description = "Add your description here"
+description = "Prepare World Bank agriculture and income data for analysis"
 readme = "README.md"
-authors = [
-    { name = "martinmragui-prog", email = "martinmragui@gmail.com" }
-]
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
-    "ipykernel>=7.4.0",
-    "jupyter>=1.1.1",
+    "ipykernel>=6.29",
+    "jupyter>=1.0",
     "matplotlib>=3.11.2",
-    "numpy>=2.5.3",
-    "pandas>=3.0.6",
-    "scipy>=1.18.1",
+    "pandas>=2.2",
+    "scipy>=1.17.1",
     "seaborn>=0.13.2",
-    "statsmodels>=0.15.0",
-    "streamlit>=1.65.0",
+    "streamlit>=1.50",
 ]
-
-[project.scripts]
-capstone-martin = "capstone_martin:main"
 
 [build-system]
 requires = ["uv_build>=0.12.12,<0.13.0"]
