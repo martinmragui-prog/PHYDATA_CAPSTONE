@@ -1,6 +1,6 @@
 # The clue in the scatterplot: does a farming economy mean a poorer country?
 
-*I started with three World Bank indicators and more than 11,000 country-year records. The strongest pattern was clear. Getting to it—and understanding what it does not mean—was the real story.*
+*I started with three World Bank indicators and more than 11,000 country-year records. The strongest pattern was clear. Getting to it and understanding what it does not mean was the real story.*
 
 I expected the hard part of this capstone to be the statistics. Instead, it began with a more basic question: when three datasets do not agree on which countries and years they cover, what should count as a fair comparison?
 
@@ -14,7 +14,7 @@ The files arrived in wide format: one row per country, with a separate column fo
 
 I reshaped the tables so one row represented one country in one year, filtered out the group summaries, and matched records by country code and year. Then came a choice that changed the size of the analysis.
 
-Starting with the GDP table and using a left join kept all **11,764 GDP records**, even when an agriculture value was missing. An inner join would have kept only country-years found in all three tables: **8,510**. I chose not to throw those records away just because one of the other measures was blank. After cleaning implausible zero agriculture-share values, the working dataset held **11,752 records across 212 countries**.
+Starting with the GDP table and using a left join kept all **11,764 GDP records**, even when an agriculture value was missing. An inner join would have kept only country years found in all three tables: **8,510**. I chose not to throw those records away just because one of the other measures was blank. After cleaning implausible zero agriculture-share values, the working dataset held **11,752 records across 212 countries**.
 
 For the main comparison, I still needed all three measures, so I used the **8,465 country-years** with complete values. Missing data was left missing—not quietly changed to zero. A blank means “not reported here,” not “no agriculture.”
 
@@ -46,9 +46,9 @@ If agriculture’s economic share was so strongly related to income, would count
 
 Not nearly as clearly. The correlation between agricultural land and log GDP per capita was **−0.207**—a much weaker relationship.
 
-The box plot groups country-years by low, medium, and high shares of agricultural land. The line inside each box marks the median income; the circles show unusually high values. All three groups contain a broad range of incomes.
+The box plot groups country years by low, medium, and high shares of agricultural land. The line inside each box marks the median income; the circles show unusually high values. All three groups contain a broad range of incomes.
 
-The mean log-income values were **3.67** for the low-land group and **3.28** for both the medium- and high-land groups. An analysis-of-variance test found differences somewhere among the three groups (F = **250.9**, p < **0.001**), but it does not tell us that land caused those differences. There is no neat staircase where each increase in agricultural land maps to a steady drop in income.
+The mean log-income values were **3.67** for the low-land group and **3.28** for both the medium and high-land groups. An analysis-of-variance test found differences somewhere among the three groups (F = **250.9**, p < **0.001**), but it does not tell us that land caused those differences. There is no neat staircase where each increase in agricultural land maps to a steady drop in income.
 
 ![Box plot comparing GDP per capita across low, medium, and high agricultural-land groups.](figures/chart2_gdp_by_land_group.png)
 
@@ -70,7 +70,7 @@ But “before versus after” is not an experiment. Countries were not randomly 
 
 ## What does a statistical test add?
 
-I used a Welch t-test to compare average log GDP per capita in the high- and low-agriculture-share groups. The high-share group averaged **2.84** on the log scale—about **$686** when translated back—while the low-share group averaged **3.97**, or about **$9,253**. The measured difference was large (t = **−104.8**, p < **0.001**).
+I used a Welch t-test to compare average log GDP per capita in the high and low agriculture-share groups. The high-share group averaged **2.84** on the log scale—about **$686** when translated back—while the low-share group averaged **3.97**, or about **$9,253**. The measured difference was large (t = **−104.8**, p < **0.001**).
 
 A very small p-value is not the probability that the hypothesis is true, and it does not tell us what caused the gap. There are thousands of records, but they are not thousands of independent experiments: one country contributes observations across many years. That repeated structure can make standard tests sound more certain than they should.
 
@@ -86,6 +86,6 @@ That is a finding about association, not proof that agriculture causes low incom
 
 The questions I’m left with are more specific than the one I started with. Do regions show different patterns? What happens if we follow countries individually over time? Which additional measures could help explain the differences?
 
-The biggest lesson was that cleaning data is not a warm-up before “real” analysis. Decisions about countries, years, joins, and missing values determine what the evidence can support. The plot may show the clue—but understanding how it got there is part of the story.
+The biggest lesson was that cleaning data is not a warm up before “real” analysis. Decisions about countries, years, joins, and missing values determine what the evidence can support. The plot may show the clue but understanding how it got there is part of the story.
 
 *Data source: World Bank, World Development Indicators. This project describes associations in the available data; it does not establish causation.*
