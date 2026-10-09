@@ -1,34 +1,43 @@
-# Agriculture and income: preparing World Bank data
+# Agriculture and Income: Does a Farming Economy Mean a Richer Country?
 
-This project prepares a clean country-by-year dataset from World Bank data. It brings together GDP per person, agriculture's share of GDP, and the share of workers employed in agriculture.
+This capstone uses World Bank data to explore whether countries with a larger
+agriculture sector or a greater share of agricultural land tend to have lower
+GDP per capita. The analysis follows the six CRISP-DM phases, from business
+understanding through deployment, and includes a Streamlit app for exploring
+the cleaned data.
 
-The notebook shows each data-cleaning step so it is easy to follow and change.
+The results describe associations, not cause and effect. Country-year records
+repeat countries across time, so they are not independent observations.
 
-## Project question
+## Research question
 
-How does agriculture relate to GDP per person across countries?
-
-This notebook prepares the data for exploring that question; it does not try to answer it. A relationship between two measures would not, by itself, show that one causes the other.
+Do countries with a larger agriculture share of GDP or a greater share of
+agricultural land tend to have lower GDP per capita?
 
 ## Data
 
-The `phydata_capstone data/` folder contains the CSV files used in the project. They come from the World Bank's World Development Indicators:
+The `NEW DATA/` folder contains the source CSVs from the World Bank's World
+Development Indicators:
 
 - GDP per capita (current US$), indicator `NY.GDP.PCAP.CD`
-- Agriculture, forestry and fishing value added (% of GDP), indicator `NV.AGR.TOTL.ZS`
-- Employment in agriculture (% of total employment), indicator `SL.AGR.EMPL.ZS`
+- Agriculture, forestry, and fishing value added (% of GDP), indicator
+  `NV.AGR.TOTL.ZS`
+- Agricultural land (% of land area), indicator `AG.LND.AGRI.ZS`
 
-The notebook keeps country data from 1991 to 2025. Some countries have missing years, so the number of observations can vary.
+The notebook examines data from 1960 through 2025. It reshapes the source
+tables into country-year records, excludes non-country aggregates, combines
+the three indicators, and prepares variables for comparisons. Records missing
+any of the three measures are not used in the complete-case analysis.
 
-## Run the notebook
+## Run the capstone notebook
 
-You need Python 3.11 or newer. From the project folder, create an environment and install the project dependencies:
+You need Python 3.11 or newer. From the project folder, create an environment
+and install the dependencies:
 
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\activate
 python -m pip install -e .
-jupyter notebook
 ```
 
 On macOS or Linux, activate the environment with:
@@ -37,24 +46,39 @@ On macOS or Linux, activate the environment with:
 source .venv/bin/activate
 ```
 
-Open `Notebooks/capstone_beginner.ipynb` and run the cells from top to bottom. The notebook looks for the included data folder from either the project folder or the `Notebooks/` folder. It saves the result as `capstone_clean.csv` in the data folder.
+Start Jupyter from the project folder and open `Capstone_Project.ipynb`:
+
+```bash
+jupyter notebook Capstone_Project.ipynb
+```
+
+Run the notebook cells from top to bottom. It reads the indicator CSVs from
+`NEW DATA/` and saves the cleaned dataset as `capstone_clean.csv` and its
+three charts in `figures/`.
+
+The notebook explores the data distributions, compares GDP per capita with
+agriculture's share of GDP and agricultural-land groups, examines the
+agriculture share over time, and runs statistical tests for those comparisons.
 
 ## Run the Streamlit app
 
-From the project folder, install the project dependencies and start the app:
+From the project folder, activate the environment if needed, then run:
 
-```powershell
-python -m pip install -e .
+```bash
 streamlit run app.py
 ```
 
-The app reads the root `capstone_clean.csv`, displays the three charts in `figures/`, and lets you filter the summary and cleaned-data table by year and country.
+The app reads `capstone_clean.csv` and displays the charts saved in `figures/`.
+Use the year-range slider and country selector to filter the summary and
+country-year data table. The displayed charts are static notebook figures and
+do not change with those filters.
 
-## What the notebook does
+## Project files
 
-1. Loads the three World Bank CSV files and keeps country observations.
-2. Reshapes the tables so each row represents one country and year.
-3. Joins the indicators and removes incomplete or out-of-range rows.
-4. Saves the cleaned dataset as a CSV file for later analysis.
-
-The notebook uses Python and pandas. NumPy is installed as a pandas dependency.
+- `Capstone_Project.ipynb` — main capstone analysis, including the CRISP-DM
+  workflow and charts
+- `NEW DATA/` — World Bank source data and metadata
+- `capstone_clean.csv` — cleaned data used by the app
+- `figures/` — charts generated by the notebook
+- `app.py` — Streamlit dashboard
+- `Notebooks/` — additional notebook work
