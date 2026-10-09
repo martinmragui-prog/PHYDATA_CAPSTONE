@@ -13,13 +13,13 @@ repeat countries across time, so they are not independent observations.
 
 1. **[GitHub repository](https://github.com/martinmragui-prog/PHYDATA_CAPSTONE)** —
    project source, environment files, notebook, and data.
-2. **Streamlit app** — deployment to Streamlit Community Cloud is still
-   pending. Once deployed, replace this note with the public app URL.
+2. **[Live Streamlit app](https://phydatacapstone-grvwrnxrgiubtkdkvpnzuf.streamlit.app/)**
+   — deployed on Streamlit Community Cloud.
 3. **[CRISP-DM presentation](./slides.html)** — six slides for presenting the
    question, data, preparation, analysis, results, and recommendation. Open
    the file in a browser and use the arrow keys to navigate.
-4. **Article** — [read the article](./substack_article.md). Add its public
-   Substack or Medium URL here when available.
+4. **[Published Substack article](https://mattragui.substack.com/p/the-clue-in-the-scatterplot-does)** —
+   [read the article source](./substack_article.md).
 
 ## Research question
 
