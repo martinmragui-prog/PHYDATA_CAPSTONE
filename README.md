@@ -9,6 +9,19 @@ the cleaned data.
 The results describe associations, not cause and effect. Country-year records
 repeat countries across time, so they are not independent observations.
 
+## Capstone deliverables
+
+1. **[GitHub repository](https://github.com/martinmragui-prog/PHYDATA_CAPSTONE)** —
+   project source, environment files, notebook, and data.
+2. **Streamlit app** — deployment to Streamlit Community Cloud is still
+   pending. Once deployed, replace this note with the public app URL.
+3. **[CRISP-DM presentation](./slides.html)** — six slides for presenting the
+   question, data, preparation, analysis, results, and recommendation. Open
+   the file in a browser and use the arrow keys to navigate.
+4. **Article** — [read the current draft](./substack_article_draft.md).
+   Publication on Substack or Medium is still pending; replace this draft link
+   with the public article URL once published.
+
 ## Research question
 
 Do countries with a larger agriculture share of GDP or a greater share of
@@ -31,25 +44,23 @@ any of the three measures are not used in the complete-case analysis.
 
 ## Run the capstone notebook
 
-You need Python 3.11 or newer. From the project folder, create an environment
-and install the dependencies:
+You need Python 3.11 or newer and [uv](https://docs.astral.sh/uv/). From the
+project folder, install the locked dependencies:
 
 ```powershell
-py -m venv .venv
-.\.venv\Scripts\activate
-python -m pip install -e .
+uv sync
 ```
 
 On macOS or Linux, activate the environment with:
 
 ```bash
-source .venv/bin/activate
+uv sync
 ```
 
 Start Jupyter from the project folder and open `Capstone_Project.ipynb`:
 
 ```bash
-jupyter notebook Capstone_Project.ipynb
+uv run jupyter notebook Capstone_Project.ipynb
 ```
 
 Run the notebook cells from top to bottom. It reads the indicator CSVs from
@@ -65,7 +76,7 @@ agriculture share over time, and runs statistical tests for those comparisons.
 From the project folder, activate the environment if needed, then run:
 
 ```bash
-streamlit run app.py
+uv run streamlit run app.py
 ```
 
 The app reads `capstone_clean.csv` and displays the charts saved in `figures/`.
