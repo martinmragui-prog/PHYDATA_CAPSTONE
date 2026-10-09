@@ -15,9 +15,9 @@ repeat countries across time, so they are not independent observations.
    project source, environment files, notebook, and data.
 2. **[Live Streamlit app](https://phydatacapstone-grvwrnxrgiubtkdkvpnzuf.streamlit.app/)**
    — deployed on Streamlit Community Cloud.
-3. **[CRISP-DM presentation](./slides.html)** — six slides for presenting the
-   question, data, preparation, analysis, results, and recommendation. Open
-   the file in a browser and use the arrow keys to navigate.
+3. **[CRISP-DM presentation](https://martinmragui-prog.github.io/PHYDATA_CAPSTONE/)** —
+   six slides for presenting the question, data, preparation, analysis, results,
+   and recommendation. Use the arrow keys to navigate.
 4. **[Published Substack article](https://mattragui.substack.com/p/the-clue-in-the-scatterplot-does)** —
    [read the article source](./substack_article.md).
 
