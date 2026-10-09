@@ -10,7 +10,7 @@ To investigate, I brought together three World Bank measures covering 1960 to 20
 
 ## The first surprise was in the spreadsheets
 
-The files arrived in wide format: one row per country, with a separate column for every year. They also included rows such as “World” and “Low income”—useful summaries, but not individual countries—and plenty of blank cells. Countries do not report every indicator in every year.
+The files arrived in wide format: one row per country, with a separate column for every year. They also included rows such as “World” and “Low income” useful summaries, but not individual countries and plenty of blank cells. Countries do not report every indicator in every year.
 
 I reshaped the tables so one row represented one country in one year, filtered out the group summaries, and matched records by country code and year. Then came a choice that changed the size of the analysis.
 
@@ -20,7 +20,7 @@ For the main comparison, I still needed all three measures, so I used the **8,46
 
 ## A snapshot before the long view
 
-I also looked at 2020 on its own. Among the reporting countries, the median GDP per capita was about **$6,133**, the median agriculture share was **7.54%**, and the median agricultural-land share was **39.43%**.
+I also looked at 2020 on its own. Among the reporting countries, the median GDP per capita was about **$6,133**, the median agriculture share was **7.54%**, and the median agricultural land share was **39.43%**.
 
 Why the median? A few countries have extraordinarily high GDP per person. Those values pull up the average, while the median simply marks the midpoint of the countries we can compare.
 
