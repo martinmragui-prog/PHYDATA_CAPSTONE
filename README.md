@@ -78,10 +78,13 @@ From the project folder, activate the environment if needed, then run:
 uv run streamlit run app.py
 ```
 
-The app reads `capstone_clean.csv` and displays the charts saved in `figures/`.
-Use the year-range slider and country selector to filter the summary and
-country-year data table. The displayed charts are static notebook figures and
-do not change with those filters.
+The app reads `capstone_clean.csv` and provides an interactive dashboard.
+Use the sidebar to filter by year, country, agriculture-share group, and
+agricultural-land group. The Overview tab shows median indicator trends;
+Relationships compares agriculture measures with income; Group comparisons
+summarizes income by agriculture and land categories; Country rankings compares
+country medians; and Data displays the filtered records and indicator coverage.
+Missing indicator values are omitted only from charts that use those measures.
 
 ## Project files
 
